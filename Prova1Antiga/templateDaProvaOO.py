@@ -88,7 +88,8 @@ class Pasta:
             if arq.end == date:
                 print(arq)
 
-    
+
+print("lalalala")
 #-------- Área de teste da questao 2 --------
 print('\n------ Teste da Q2 ------')
 '''Retire # das linhas abaixo'''
