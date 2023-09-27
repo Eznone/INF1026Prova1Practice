@@ -34,7 +34,7 @@ class Arquivo:
         return r
     
     def __add__(self, other):
-        name = "{} {}".format(self.name, other.name)
+        name = "{} {}".format(self.nome, other.nome)
         autor = "sistema"
         text = "{}\n{}".format(self.text, other.text)
         day = Data()
@@ -63,7 +63,7 @@ class Arquivo:
 #Escreva aqui a classe Pasta
 
 class Pasta:
-    def __init__(self, name, list):
+    def __init__(self, name, list = []):
         self.name = name
         self.list = list
 
@@ -78,110 +78,116 @@ class Pasta:
     def incluiArquivo(self, newArq):
         self.list.append(newArq)
 
-    def exhibeArquivos(self):
+    def exibeArquivos(self):
         l = self.list
         for arq in l:
-            print()
+            print(arq)
+    
+    def alteradosNaData(self, date):
+        for arq in self.list:
+            if arq.end == date:
+                print(arq)
 
+    
 #-------- Área de teste da questao 2 --------
 print('\n------ Teste da Q2 ------')
 '''Retire # das linhas abaixo'''
-# print("\n=====================================")
-# print("ARQUIVOS CRIADOS")
-# print("=====================================")
+print("\n=====================================")
+print("ARQUIVOS CRIADOS")
+print("=====================================")
 
-# arq1=Arquivo('comprasFrutas','fifi',Data(12,4,2023),'abacate,pera,abacaxi,manga')
-# print(arq1)
-# print("Texto do arquivo: ")
-# arq1.exibeTexto()
+arq1=Arquivo('comprasFrutas','fifi',Data(12,4,2023),'abacate,pera,abacaxi,manga')
+print(arq1)
+print("Texto do arquivo: ")
+arq1.exibeTexto()
 
-# '''Adicionando texto'''
-# dtAlteracao=Data(19,4,2023)
-# arq1.adicionaTexto(',banana,laranja',dtAlteracao)
-# print("\n")
-# print(arq1)
-# print("Texto do arquivo: ")
-# arq1.exibeTexto()
+'''Adicionando texto'''
+dtAlteracao=Data(19,4,2023)
+arq1.adicionaTexto(',banana,laranja',dtAlteracao)
+print("\n")
+print(arq1)
+print("Texto do arquivo: ")
+arq1.exibeTexto()
 
-# '''Teste da data da última alteração'''
-# if arq1.ultimaAlteracaoNaData(dtAlteracao):
-#     print("\n\n-->A última alteração do arquivo FOI em {}".format(dtAlteracao))
-# else:
-#     print("\n\n-->A última alteração do arquivo NÃO foi em {}}".format(dtAlteracao))
+'''Teste da data da última alteração'''
+if arq1.ultimaAlteracaoNaData(dtAlteracao):
+    print("\n\n-->A última alteração do arquivo FOI em {}".format(dtAlteracao))
+else:
+    print("\n\n-->A última alteração do arquivo NÃO foi em {}}".format(dtAlteracao))
 
-# print("--------------------------------")
-# print("--------------------------------")
+print("--------------------------------")
+print("--------------------------------")
 
-# arq2=Arquivo('comprasBebidas','guga',Data(10,4,2023))
-# print(arq2)
-# print("Texto do arquivo: ")
-# arq2.exibeTexto()
+arq2=Arquivo('comprasBebidas','guga',Data(10,4,2023))
+print(arq2)
+print("Texto do arquivo: ")
+arq2.exibeTexto()
 
-# '''Substituindo texto'''
-# arq2.substituiTexto('suco,água',Data(21,4,2023))
-# print("\n")
-# print(arq2)
-# print("Texto do arquivo: ")
-# arq2.exibeTexto()
+'''Substituindo texto'''
+arq2.substituiTexto('suco,água',Data(21,4,2023))
+print("\n")
+print(arq2)
+print("Texto do arquivo: ")
+arq2.exibeTexto()
 
-# print("--------------------------------")
-# print("--------------------------------")
+print("--------------------------------")
+print("--------------------------------")
 
-# '''Juntando dois arquivos'''
-# arq3=arq1+arq2
-# print(arq3)
-# print("Texto do arquivo: ")
-# arq3.exibeTexto()
+'''Juntando dois arquivos'''
+arq3=arq1+arq2
+print(arq3)
+print("Texto do arquivo: ")
+arq3.exibeTexto()
 
-# '''Teste da data da última alteração'''
-# hoje=Data()
-# if arq2.ultimaAlteracaoNaData(hoje):
-#     print("\n\n-->A última alteração do arquivo FOI em {}".format(hoje))
-# else:
-#     print("\n\n-->A última alteração do arquivo NÃO foi em {}".format(hoje))
-
-
-
-# print("--------------------------------")
-# print("--------------------------------")
-
-# arq4=Arquivo('convBibi','bibi',Data(1,4,2023),'juca,keko,kaka,lilo,mano,mimi,dora,zeze')
-# print(arq4)
-# print("Texto do arquivo: ")
-# arq4.exibeTexto()
-
-# print("--------------------------------")
-# print("--------------------------------")
-
-# print("\n======================================")
-# print("PASTA CRIADA")
-# print("======================================")
-# pasta1=Pasta('festaNiver')
-# print(pasta1)
-# print("--------------------------------")
-# print("Arquivos da pasta")
-# pasta1.exibeArquivos()
+'''Teste da data da última alteração'''
+hoje=Data()
+if arq2.ultimaAlteracaoNaData(hoje):
+    print("\n\n-->A última alteração do arquivo FOI em {}".format(hoje))
+else:
+    print("\n\n-->A última alteração do arquivo NÃO foi em {}".format(hoje))
 
 
-# print("\n======================================")
-# print("ARQUIVOS INCLUIDOS NAS PASTAS")
-# print("======================================")
 
-# '''Incluindo arquivos na pasta '''
-# pasta1.incluiArquivo(arq1)
-# pasta1.incluiArquivo(arq2)
-# pasta1.incluiArquivo(arq3)
-# pasta1.incluiArquivo(arq4)
+print("--------------------------------")
+print("--------------------------------")
 
-# '''Exibindo pasta atualizada'''
-# print(pasta1)
-# print("Arquivos da pasta")
-# pasta1.exibeArquivos()
-# print("--------------------------------")
+arq4=Arquivo('convBibi','bibi',Data(1,4,2023),'juca,keko,kaka,lilo,mano,mimi,dora,zeze')
+print(arq4)
+print("Texto do arquivo: ")
+arq4.exibeTexto()
 
-# '''Exibindo arquivos modificados em determinada data'''
-# print("Arquivos alterado hoje na pasta {}\n".format(pasta1))
-# pasta1.alteradosNaData(Data())
+print("--------------------------------")
+print("--------------------------------")
+
+print("\n======================================")
+print("PASTA CRIADA")
+print("======================================")
+pasta1=Pasta('festaNiver')
+print(pasta1)
+print("--------------------------------")
+print("Arquivos da pasta")
+pasta1.exibeArquivos()
+
+
+print("\n======================================")
+print("ARQUIVOS INCLUIDOS NAS PASTAS")
+print("======================================")
+
+'''Incluindo arquivos na pasta '''
+pasta1.incluiArquivo(arq1)
+pasta1.incluiArquivo(arq2)
+pasta1.incluiArquivo(arq3)
+pasta1.incluiArquivo(arq4)
+
+'''Exibindo pasta atualizada'''
+print(pasta1)
+print("Arquivos da pasta")
+pasta1.exibeArquivos()
+print("--------------------------------")
+
+'''Exibindo arquivos modificados em determinada data'''
+print("Arquivos alterado hoje na pasta {}\n".format(pasta1))
+pasta1.alteradosNaData(Data())
 
 
 print('\n---- Fim do Teste da Q3 ----')             
