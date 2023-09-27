@@ -68,7 +68,20 @@ class Pasta:
         self.list = list
 
     def __str__(self):
-        s = ""
+        s = "{}, {}".format(self.name, len(self.list))
+        return s
+    
+    def __repr__(self):
+        r = "{}, {}".format(self.name, len(self.list))
+        return r
+    
+    def incluiArquivo(self, newArq):
+        self.list.append(newArq)
+
+    def exhibeArquivos(self):
+        l = self.list
+        for arq in l:
+            print()
 
 #-------- Área de teste da questao 2 --------
 print('\n------ Teste da Q2 ------')
